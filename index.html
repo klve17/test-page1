@@ -3,23 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            color: #333;
-        }
-    </style>
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to My GitHub Pages Site</h1>
+    <div class="container">
+        <div class="header">
+            <h1>John & Jane</h1>
+            <p>You're Invited</p>
+        </div>
+        <div class="content">
+            <h2>Wedding Invitation</h2>
+            <p>We are excited to announce our wedding on</p>
+            <h3>June 30, 2024</h3>
+            <p>at</p>
+            <h3>Central Park, New York</h3>
+            <p>Reception to follow</p>
+        </div>
+        <div class="rsvp">
+            <h2>RSVP</h2>
+            <form id="rsvp-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="attending">Will you be attending?</label>
+                <select id="attending" name="attending" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
