@@ -1,4 +1,8 @@
-document.getElementById('rsvp-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Thank you for your response!');
+window.addEventListener('scroll', function() {
+    var footer = document.querySelector('footer');
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        footer.style.display = 'block';
+    } else {
+        footer.style.display = 'none';
+    }
 });
