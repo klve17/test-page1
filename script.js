@@ -14,12 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close modal on clicking close button
     closeModal.onclick = function() {
         passwordModal.style.display = 'none';
+        passwordInput.value = ''; // Clear password input
     };
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == passwordModal) {
             passwordModal.style.display = 'none';
+            passwordInput.value = ''; // Clear password input
         }
     };
 
