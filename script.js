@@ -4,9 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var closeModal = document.getElementsByClassName('close')[0];
     var submitPassword = document.getElementById('submit-password');
     var passwordInput = document.getElementById('password-input');
+    var getStartedButton = document.getElementById('get-started');
 
-    // Show modal initially
-    passwordModal.style.display = 'block';
+    // Show modal when "Get Started" button is clicked
+    getStartedButton.addEventListener('click', function() {
+        passwordModal.style.display = 'block';
+    });
 
     // Close modal on clicking close button
     closeModal.onclick = function() {
@@ -27,6 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
             isAuthenticated = true;
             passwordModal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Enable scrolling
+
+            // Disable "Get Started" button and change text
+            getStartedButton.disabled = true;
+            getStartedButton.textContent = 'Scroll Down';
+
             new fullpage('#fullpage', {
                 autoScrolling: true,
                 scrollHorizontally: true,
@@ -49,13 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isAuthenticated) {
             event.preventDefault();
             window.scrollTo(0, 0);
-        }
-    });
-
-    // Smooth scroll to the next section when "Get Started" button is clicked
-    document.getElementById('get-started').addEventListener('click', function() {
-        if (isAuthenticated) {
-            fullpage_api.moveSectionDown();
         }
     });
 });
