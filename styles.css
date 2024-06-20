@@ -39,6 +39,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column; /* Ensure vertical alignment */
 }
 .intro, .activation-image, .activation-text, .letter-instructor, .blank {
     background-color: #fff;
