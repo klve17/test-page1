@@ -4,32 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Webpage Structure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
 </head>
 <body>
     <header>
         Header
     </header>
-    <main>
-        <section class="intro">
-            Intro
+    <div id="fullpage">
+        <section class="section intro">
+            <h1>Intro</h1>
+            <p>Welcome to our website!</p>
+            <button id="get-started">Get Started</button>
         </section>
-        <section class="activation-image">
-            Activation (Image)
+        <section class="section activation-image">
+            <h2>Activation (Image)</h2>
         </section>
-        <section class="activation-text">
-            Activation (Text)
+        <section class="section activation-text">
+            <h2>Activation (Text)</h2>
         </section>
-        <section class="letter-instructor">
-            Letter's Instructor
+        <section class="section letter-instructor">
+            <h2>Letter's Instructor</h2>
         </section>
-        <section class="blank">
-            Blank
+        <section class="section blank">
+            <h2>Blank</h2>
         </section>
-    </main>
+    </div>
     <footer>
         Footer
     </footer>
+    
+    <!-- Password Modal -->
+    <div id="password-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Enter Password</h2>
+            <input type="password" id="password-input" placeholder="Password">
+            <button id="submit-password">Submit</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
