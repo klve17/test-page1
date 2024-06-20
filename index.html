@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>
 <body>
     <header>
@@ -27,8 +28,9 @@
         <section class="section letter-instructor">
             <h2>Letter's Instructor</h2>
         </section>
-        <section class="section blank">
+        <section class="section blank" id="blank-section">
             <h2>Blank</h2>
+            <p id="blank-content">Default content</p>
         </section>
     </div>
     <footer>
@@ -39,9 +41,9 @@
     <div id="password-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Enter Password</h2>
-            <input type="password" id="password-input" placeholder="Password">
-            <button id="submit-password">Submit</button>
+            <h2>Enter Phone Number</h2>
+            <input type="text" id="phone-input" placeholder="Phone Number">
+            <button id="submit-phone">Submit</button>
         </div>
     </div>
 
