@@ -17,11 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var submitPhone = document.getElementById('submit-phone');
     var phoneInput = document.getElementById('phone-input');
     var getStartedButton = document.getElementById('get-started');
+    var headerText = document.getElementById('header-text');
 
     // Define the phone number to content mapping
     var phoneContentMap = {
-        '1234567890': 'Content for phone number 1234567890',
-        '0987654321': 'Content for phone number 0987654321',
+        '1234567890': '홍길동',
+        '0987654321': '김철수',
         // Add more phone numbers and their corresponding content here
     };
 
@@ -47,13 +48,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check phone number and enable scrolling if correct
     submitPhone.onclick = function() {
         var phoneNumber = phoneInput.value;
-        if (phoneContentMap[phoneNumber]) {
+        var userName = phoneContentMap[phoneNumber];
+        if (userName) {
             isAuthenticated = true;
             passwordModal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Enable scrolling
 
             // Set the content of the blank section based on the phone number
             document.getElementById('blank-content').textContent = phoneContentMap[phoneNumber];
+
+            // Display personalized message in header
+            headerText.textContent = userName + '님, 한 학기 이수를 축하드립니다!';
+
 
             // Disable "Get Started" button and change text
             getStartedButton.disabled = true;
