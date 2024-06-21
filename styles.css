@@ -1,3 +1,36 @@
+/* 기존 스타일... */
+
+#navigation {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+#navigation ul {
+    list-style-type: none;
+}
+
+#navigation ul li {
+    margin: 10px 0;
+}
+
+#navigation ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+#navigation ul li a:hover {
+    color: #0056b3;
+}
+
+/* 기존 스타일... */
+
+
+/* Existing styles... */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -32,6 +65,7 @@ footer {
     left: 0;
     display: none; /* Initially hidden */
 }
+
 .section {
     text-align: center;
     padding: 20px;
