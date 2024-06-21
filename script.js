@@ -50,6 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
             new fullpage('#fullpage', {
                 autoScrolling: true,
                 scrollHorizontally: true,
+                anchors: [
+                    'intro', 'activation-text', 'activation-text1', 'activation-text2', 
+                    'activation-text3', 'activation-text4', 'activation-text5', 'activation-text6', 
+                    'activation-text7', 'activation-text8', 'activation-text9', 'activation-text10', 
+                    'letter', 'blank'
+                ],
                 afterLoad: function(origin, destination, direction) {
                     var footer = document.querySelector('footer');
                     if (destination.isLast) {
@@ -60,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         } else {
-            alert('Incorrect phone number. Please try again.');
+            alert('잘못된 전화번호입니다. 다시 시도해주세요.');
         }
     };
 
