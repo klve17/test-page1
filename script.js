@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var header = document.querySelector('header');
+    var footer = document.querySelector('footer');
 
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var phoneInput = document.getElementById('phone-input');
     var getStartedButton = document.getElementById('get-started');
     var headerText = document.getElementById('header-text');
+    var introSection = document.getElementById('intro-section');
 
     // Define the phone number to content mapping
     var phoneContentMap = {
@@ -58,28 +60,29 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('blank-content').textContent = phoneContentMap[phoneNumber];
 
             // Display personalized message in header
-            headerText.textContent = userName + '님, 한 학기 이수를 축하드립니다!';
-
+            headerText.textContent = userName + '님, 1학년 1학기 이수를 축하드립니다!';
 
             // Disable "Get Started" button and change text
             getStartedButton.disabled = true;
             getStartedButton.textContent = 'Scroll Down';
 
+            // Change intro section content
+            introSection.innerHTML = '<h2>스크롤을 내려주세요!</h2>';
+
             new fullpage('#fullpage', {
                 autoScrolling: true,
                 scrollHorizontally: true,
                 anchors: [
-                    'intro', 'activation-text', 'activation-text1', 'activation-text2', 
+                    'intro', 'blank1', 'activation-text', 'activation-text1', 'activation-text2', 
                     'activation-text3', 'activation-text4', 'activation-text5', 'activation-text6', 
                     'activation-text7', 'activation-text8', 'activation-text9', 'activation-text10', 
                     'letter', 'blank'
                 ],
                 afterLoad: function(origin, destination, direction) {
-                    var footer = document.querySelector('footer');
                     if (destination.isLast) {
-                        footer.style.display = 'block';
+                        footer.classList.add('visible');
                     } else {
-                        footer.style.display = 'none';
+                        footer.classList.remove('visible');
                     }
 
                     // Add active class to current section
@@ -92,8 +95,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
 
                     var activeLink;
-                    if (destination.anchor.startsWith('activation-text')) {
-                        activeLink = document.querySelector('#navigation ul li a[href="#activation-text"]');
+                    if (destination.anchor.startsWith('blank1')) {
+                        activeLink = document.querySelector('#navigation ul li a[href="#intro"]');
+                    } else if(destination.anchor.startsWith('activation-text')) {
+                      activeLink = document.querySelector('#navigation ul li a[href="#activation-text"]');
                     } else {
                         activeLink = document.querySelector('#navigation ul li a[href="#' + destination.anchor + '"]');
                     }
@@ -101,13 +106,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (activeLink) {
                         activeLink.classList.add('active');
                     }
+
+                    // Add animation class to intro section text
+                    if (destination.anchor === 'intro') {
+                        var introText = document.querySelector('#intro-section h2');
+                        introText.classList.add('animated-text');
+                        header.classList.remove('hidden'); // 인트로 섹션에서는 헤더 보이기
+                    } else {
+                        header.classList.add('hidden'); // 다른 섹션에서는 헤더 숨기기
+                    }
                 }
             });
         } else {
             alert('잘못된 전화번호입니다. 다시 시도해주세요.');
         }
     };
-  
+
     // Prevent scrolling if not authenticated
     window.addEventListener('scroll', function(event) {
         if (!isAuthenticated) {
