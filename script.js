@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
+    var header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+            header.style.padding = '10px 10px';
+        } else {
+            header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            header.style.padding = '20px 10px';
+        }
+    });
+
     var isAuthenticated = false;
     var passwordModal = document.getElementById('password-modal');
     var closeModal = document.getElementsByClassName('close')[0];
@@ -63,13 +75,33 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         footer.style.display = 'none';
                     }
+
+                    // Add active class to current section
+                    destination.item.classList.add('active');
+
+                    // Update navigation active link
+                    var navLinks = document.querySelectorAll('#navigation ul li a');
+                    navLinks.forEach(function(link) {
+                        link.classList.remove('active');
+                    });
+
+                    var activeLink;
+                    if (destination.anchor.startsWith('activation-text')) {
+                        activeLink = document.querySelector('#navigation ul li a[href="#activation-text"]');
+                    } else {
+                        activeLink = document.querySelector('#navigation ul li a[href="#' + destination.anchor + '"]');
+                    }
+
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
                 }
             });
         } else {
             alert('잘못된 전화번호입니다. 다시 시도해주세요.');
         }
     };
-
+  
     // Prevent scrolling if not authenticated
     window.addEventListener('scroll', function(event) {
         if (!isAuthenticated) {
