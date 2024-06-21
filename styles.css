@@ -130,6 +130,14 @@ footer.visible {
     opacity: 1; /* Intro 섹션을 항상 보이도록 설정 */
 }
 
+#animated-message h2 {
+    font-size: 2em;
+    color: #007bff;
+    font-family: 'Noto Sans KR', 'Merriweather', serif;
+    margin: 20px;
+    white-space: pre-wrap; /* Preserve whitespace */
+}
+
 .fp-tableCell {
   padding-bottom: 0px; /* 각 섹션별 내부 컨텐츠 위치 조정 */
 }
