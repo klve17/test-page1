@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var getStartedButton = document.getElementById('get-started');
     var headerText = document.getElementById('header-text');
     var introSection = document.getElementById('intro-section');
+    var introContent = document.getElementById('intro-content');
+    var animatedMessage = document.getElementById('animated-message');
+    var animatedText = document.getElementById('animated-text');
 
     // Define the phone number to content mapping
     var phoneContentMap = {
@@ -47,6 +50,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    // Function to animate text
+    function animateText(text) {
+        let index = 0;
+        animatedText.innerHTML = "";
+        animatedMessage.style.display = "block";
+
+        function type() {
+            if (index < text.length) {
+                animatedText.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 50); // Adjust typing speed here
+            }
+        }
+
+        type();
+    }
+
     // Check phone number and enable scrolling if correct
     submitPhone.onclick = function() {
         var phoneNumber = phoneInput.value;
@@ -67,7 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
             getStartedButton.textContent = 'Scroll Down';
 
             // Change intro section content
-            introSection.innerHTML = '<h2>스크롤을 내려주세요!</h2>';
+            introContent.style.display = 'none';
+            animateText("스크롤을 내려주세요!");
 
             new fullpage('#fullpage', {
                 autoScrolling: true,
@@ -96,9 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     var activeLink;
                     if (destination.anchor.startsWith('blank1')) {
-                        activeLink = document.querySelector('#navigation ul li a[href="#intro"]');
-                    } else if(destination.anchor.startsWith('activation-text')) {
-                      activeLink = document.querySelector('#navigation ul li a[href="#activation-text"]');
+                        activeLink = document.querySelector('#navigation ul li a[href="#intro"]');           
+                } else if (destination.anchor.startsWith('activation-text')) {
+                        activeLink = document.querySelector('#navigation ul li a[href="#activation-text"]');
                     } else {
                         activeLink = document.querySelector('#navigation ul li a[href="#' + destination.anchor + '"]');
                     }
@@ -109,8 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Add animation class to intro section text
                     if (destination.anchor === 'intro') {
-                        var introText = document.querySelector('#intro-section h2');
-                        introText.classList.add('animated-text');
                         header.classList.remove('hidden'); // 인트로 섹션에서는 헤더 보이기
                     } else {
                         header.classList.add('hidden'); // 다른 섹션에서는 헤더 숨기기
