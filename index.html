@@ -18,39 +18,60 @@
     
     <div id="fullpage">
         <section id="intro-section" class="section intro" data-anchor="intro">
+          <div class="intro-anchor">Intro</div>
           <div id="intro-content">
-              <p>한 학기 동안 어려운 내용을 들으신다고 고생하신 여러분을 위해 간단한 선물을 준비했습니다.<br>
-              페이지를 보시려면 여러분의 전화번호를 입력해주세요!</p>
-              <br>
-              <p>예: 010-NNNN-NNNN</p>
-              <button id="get-started">전화번호 입력하기</button>
+            <div class="container">
+              <div class="intro-section">     
+                <h1>Congratulation</h1>
+                <div class="radial-lines">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+              </div>
+            </div>
+            <button id="get-started">전화번호 입력하기</button>
           </div>
           <div id="animated-message" style="display: none;">
-              <h2 id="animated-text"></h2>
+            <h2 id="animated-text"></h2>
           </div>
       </section>
         
         <!-- 빈 섹션 추가 -->
         <section id="blank-section-1" class="section blank" data-anchor="blank1">
             <!-- 빈 섹션 콘텐츠 -->
+            <p>여러분은 한 학기 동안 디지털 세상 속에서 정보를 관리하기 위한 전반적인 지식을 배웠습니다.</p>
+            <div class="animated-circle">
+              <svg viewBox="0 0 100 100">
+                  <circle class="circle" cx="50" cy="50" r="25"></circle>
+                  <circle class="circle" cx="50" cy="50" r="40"></circle>
+                  <circle class="circle" cx="50" cy="50" r="60"></circle>
+              </svg>
+          </div>
         </section>
       
         <section id="activation-text-section" class="section activation-text" data-anchor="activation-text">
-            <h2>Activation (Text)</h2>
-            <p>한 학기에 대한 리뷰</p>
-            <p>여러분은 한 학기 동안 디지털 세상 속에서 정보를 관리하기 위한 전반적인 지식을 배웠습니다.</p>
-            <br>
-            <h3>[INDEX]</h3>
-            <p>1. 디지털의 기초</p>
-            <p>2. 스마트폰의 활용</p>
-            <p>3. 브라우징 (정보 탐색1)</p>
-            <p>4. 유튜브 (정보 탐색2)</p>
-            <p>5. SNS (정보 공유1)</p>
-            <p>6. 블로그 (정보 공유 또는 관리)</p>
-            <p>7. 디지털 속 보안</p>
-            <p>8. IT 서비스의 전반적인 기술 원리</p>
-            <p>9. AI의 원리</p>
-            <p>10. ChatGPT</p>
+            <div class="envelope">
+              <h3>[INDEX]</h3>
+              <br>
+              <p>1. 디지털의 기초<br>
+                2. 스마트폰의 활용<br>
+                3. 브라우징<br>
+                4. 유튜브<br>
+                5. SNS<br>
+                6. 블로그<br>
+                7. 디지털 속 보안<br>
+                8. IT 서비스의 전반적인 기술 원리<br>
+                9. AI의 원리<br>
+                10. ChatGPT</p>
+             </div>
         </section>
         
         <section class="section activation-text1" data-anchor="activation-text1">
@@ -123,6 +144,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>전화번호 입력</h2>
+            <br>
             <input type="text" id="phone-input" placeholder="전화번호">
             <button id="submit-phone">제출</button>
         </div>
